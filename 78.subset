@@ -1,0 +1,16 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n=len(nums)
+        ans=[]
+        subset=1<<n # 1<<n n=2 so 2nd index so we put 1 at index 2 so the output is 010 2 power 2 is 4
+        for val in range(subset): # 0
+            sub=[]
+            for i in range(n):# 2
+                if(val &(1<<i)):# so (val=0 and i=0 )  so 0&1<<0 ans is 00   # 01 if we do and we will get 00
+                    sub.append(nums[i])
+            ans.append(sub)
+        return ans
+
+        ## time is O(n - 2^n)   
+        # without using the  recursion
+        
